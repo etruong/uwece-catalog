@@ -16,6 +16,9 @@ let ECECategories = ["Capacitors", "Chokes and Inductors",
     "Test Leads", "Transistors (Bipolar, FETS, JFETS, MOSFETS, ect",
     "Voltage Regulators"];
 
+let cartContent = [];
+let cartContentAmount = 0;
+
 function makeCategory (category) {
     let option = document.createElement ("li");
     option.textContent = category;
@@ -67,7 +70,7 @@ function generateInfoList (itemInfo, subcategory) {
     let part = document.createElement ("th");
     part.textContent = itemInfo[3];
     row.append (part);
-    for (let i = 4; i <= 6; i++) {
+    for (let i = 4; i <= 5; i++) {
         let info = document.createElement ("td");
         info.textContent = itemInfo[i];
         row.append (info);
@@ -75,6 +78,12 @@ function generateInfoList (itemInfo, subcategory) {
     let buy = document.createElement ("i");
     buy.classList.add ("fas");
     buy.classList.add ("fa-plus-square");
+    buy.addEventListener ("click", function () {
+        let boughtItem = {id:itemInfo[3], description:itemInfo[4], cost:itemInfo[5]};
+        cartContent.push (boughtItem);
+        cartContentAmount++;
+        document.querySelector ("#cartAmount").textContent = " (" + cartContentAmount + ")";
+    });
     row.append (buy);
     document.querySelector ("#item-content").append (row);
 }
