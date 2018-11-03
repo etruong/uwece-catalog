@@ -25,7 +25,7 @@ ECECategories.forEach (makeCategory);
 document.querySelector ("#back-btn").addEventListener ("click", function () {
     document.querySelector ("#category-list").innerHTML = "";
     ECECategories.forEach (makeCategory);
-    document.querySelector ("#locator").classList.add ("d-none");
+    document.querySelector ("#back-btn").classList.add ("d-none");
     document.querySelector ("#main-items").classList.add ("d-none");
     document.querySelector ("tbody").innerHTML = "";
 });
@@ -56,7 +56,7 @@ function fetchInfo (category) {
         download: true, 
         header: false,
         complete: (function (data) {
-            document.querySelector ("#locator").classList.remove ("d-none");
+            document.querySelector ("#back-btn").classList.remove ("d-none");
             document.querySelector ("#main-items").classList.remove ("d-none");
             let currentCategory = document.querySelectorAll (".current-category");
             for (let i = 0; i < currentCategory.length; i++) {
