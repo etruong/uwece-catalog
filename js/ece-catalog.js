@@ -34,7 +34,7 @@ document.querySelector("#cart-btn").addEventListener("click", function () {
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
     document.querySelector("#catalog").classList.remove("col-md-8");
-    document.querySelector("#catalog").classList.remove("col");
+    document.querySelector("#catalog").classList.add("col");
     document.querySelector("#cart-container").classList.add("d-none");
 });
 
@@ -59,7 +59,7 @@ function populateRowCart (item) {
     row.append (part);
     row.append (cost);
     row.append (amount);
-    let itemCost = parseDouble (cost) * parseInt (amount);
+    let itemCost = parseFloat (cost) * parseInt (amount);
     total = itemCost + total;
     document.querySelector ("#cart-container tbody").append (row);
 }
