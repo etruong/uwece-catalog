@@ -86,6 +86,10 @@ thead {
     top: 0;
 }
 
+#main-items {
+    clear: both;
+}
+
 @media (min-width: 768px) {
     #cart {
         position: fixed;

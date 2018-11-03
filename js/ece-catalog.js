@@ -97,7 +97,7 @@ function generateInfoList (itemInfo, subcategory) {
     buy.classList.add ("fas");
     buy.classList.add ("fa-plus-square");
     buy.addEventListener ("click", function () {
-        let boughtItem = {category:currentCat, id:itemInfo[3], description:itemInfo[4], cost:itemInfo[5]};
+        let boughtItem = {category:currentCat, subcat:itemInfo[2], id:itemInfo[3], description:itemInfo[4], cost:itemInfo[5]};
         cartContent.push (boughtItem);
         cartContentAmount++;
         document.querySelector ("#cart-amount").textContent = " (" + cartContentAmount + ")";
