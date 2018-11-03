@@ -1,0 +1,78 @@
+/* 
+Purple: #4b2e83
+Gold: #b7a57a
+Metallic Gold: #85754d
+
+Light Gray: #d9d9d9
+Dark Grey: #444444
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Encode Sans", sans-serif;
+    font-weight: 900;
+    color: #4b2e83;
+}
+
+header h1 {
+    clear: both;
+}
+
+header span {
+    font-size: small;
+}
+
+header img {
+    max-width: 100px;
+    float: left;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #535353;
+}
+
+/* Main */
+#cart {
+    margin: 10px;
+    color: #4b2e83;
+    font-size: 1rem;
+}
+
+#cart i {
+    margin-right: 5px;
+}
+
+#search-catalog {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#locator {
+    display: hidden;
+    margin-top: 10px;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.list-group-item:hover {
+    background-color: #4b2e83;
+    border-color: #b7a57a;
+}
+
+.show {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    #cart {
+        position: fixed;
+        top: 5px;
+        right: 5px;
+    }
+}

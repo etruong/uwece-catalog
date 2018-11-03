@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ECE Stores</title>
+        <meta name="author" content="Elisa Truong" />
+        <meta name="description" content="ECE Stores catalog" />
+        <meta charset="utf-8" />
+        <meta name="keywords" content="RSO, UW, University, Involvement" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="img/uwee_logo.png">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Encode+Sans:900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bootstrap for styling -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <button id="cart" class="btn float-right"><i aria-label="shopping cart" class="fas fa-shopping-cart"></i> Your Cart <span id="cart-amount"></span></button>
+            <h1 class="text-center"><span class="text-muted">University of Washington</span><br />ECE Stores <br class="d-sm-none d-inline" /> Online Catalog</h1>
+        </header>
+        <main class="container-fluid text-center md">
+            <div id="catalog">
+                <div id="search-catalog" class="input-group mt-5">
+                    <input class ="form-control" type="text" placeholder="Type to search" />
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary">Search</button>
+                    </div>
+                </div>
+                <p id="locator"><span class="show">All</span>&emsp; &gt; &emsp;</p>
+                <ol id="category-list" class="list-group"></ol>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+    <script src="js/papaparse.min.js"></script>
+    <script src="js/ece-catalog.js"></script>
+</html>
