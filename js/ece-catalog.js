@@ -15,6 +15,7 @@ let cartContent = [];
 let cartContentAmount = 0;
 let currentCat = "";
 let total = 0;
+let cartBtn = false;
 
 // Set up
 ECECategories.forEach(makeCategory);
@@ -26,10 +27,17 @@ document.querySelector("#back-btn").addEventListener("click", function () {
     document.querySelector("#catalog tbody").innerHTML = "";
 });
 document.querySelector("#cart-btn").addEventListener("click", function () {
-    document.querySelector("#catalog").classList.add("col-md-8");
-    document.querySelector("#cart-container tbody").innerHTML = "";
-    populateCart();
-    document.querySelector("#cart-container").classList.remove("d-none");
+    if (cartBtn) {
+        document.querySelector("#catalog").classList.remove("col-md-8");
+        document.querySelector("#catalog").classList.add("col-12");
+        document.querySelector("#cart-container").classList.add("d-none");
+    } else {
+        cartBtn = true;
+        document.querySelector("#catalog").classList.add("col-md-8");
+        document.querySelector("#cart-container tbody").innerHTML = "";
+        populateCart();
+        document.querySelector("#cart-container").classList.remove("d-none");
+    }
 });
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
@@ -47,24 +55,47 @@ function populateCart() {
     } else {
         document.querySelector("#cart-container .alert").classList.add("d-none");
         cartContent.forEach (populateRowCart);
-        document.querySelector ("#cart-total").textContent = total;
+        document.querySelector ("#cart-total").textContent = total.toFixed(2);
     }
 }
 
 function populateRowCart (item) {
     let row = document.createElement ("tr");
+    row.id = item.id;
     let part = document.createElement ("td");
     part.textContent = item.id;
     let cost = document.createElement ("td");
     cost.textContent = item.cost;
     let amount = document.createElement ("td");
     amount.textContent = item.amount;
+    let removeBtn = document.createElement ("td");
+    removeBtn.innerHTML = "<i class=\"fas fa-plus-square\"></i><i class=\"fas fa-minus-square\"></i>";
+    row.append (removeBtn);
     row.append (part);
     row.append (cost);
     row.append (amount);
     let itemCost = parseFloat (item.cost.substring(1)) * parseInt (item.amount);
     total = total + itemCost;
     document.querySelector ("#cart-container tbody").append (row);
+}
+
+function addMoreToCart () {
+    let cartAddRemove = document.getquerySelectorAll ("#cart-container td fas");
+    for (let i = 0; i < cartAddRemove.length; i++) {
+        cartAddRemove[i].addEventListener ("click", function () {
+            let itemAdd = event.target.parent.parent.id;
+            cartContent.forEach (function (item) {
+                if (item.id == itemAdd) {
+                    if (cartAddRemove.classList.contains ("fa-plus-square")) {
+                        item.amount = item.amount + 1;
+                    } else {
+                        item.amount = item.amount - 1;
+                    }
+                }
+                populateCart ();
+            });
+        });
+    }
 }
 
 function makeCategory(category) {
