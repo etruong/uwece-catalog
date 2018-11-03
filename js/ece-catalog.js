@@ -28,6 +28,7 @@ document.querySelector("#back-btn").addEventListener("click", function () {
 });
 document.querySelector("#cart-btn").addEventListener("click", function () {
     if (cartBtn) {
+        cartBtn = false;
         document.querySelector("#catalog").classList.remove("col-md-8");
         document.querySelector("#catalog").classList.add("col-12");
         document.querySelector("#cart-container").classList.add("d-none");
@@ -69,34 +70,55 @@ function populateRowCart (item) {
     let amount = document.createElement ("td");
     amount.textContent = item.amount;
     let removeBtn = document.createElement ("td");
-    removeBtn.innerHTML = "<i class=\"fas fa-plus-square\"></i><i class=\"fas fa-minus-square\"></i>";
-    row.append (removeBtn);
+    removeBtn.append (createRemoveAdd (item, "fa-plus-square"));
+    removeBtn.append (createRemoveAdd (item, "fa-minus-square"));
     row.append (part);
     row.append (cost);
     row.append (amount);
+    row.append (removeBtn);
     let itemCost = parseFloat (item.cost.substring(1)) * parseInt (item.amount);
     total = total + itemCost;
     document.querySelector ("#cart-container tbody").append (row);
 }
 
-function addMoreToCart () {
-    let cartAddRemove = document.getquerySelectorAll ("#cart-container td fas");
-    for (let i = 0; i < cartAddRemove.length; i++) {
-        cartAddRemove[i].addEventListener ("click", function () {
-            let itemAdd = event.target.parent.parent.id;
-            cartContent.forEach (function (item) {
-                if (item.id == itemAdd) {
-                    if (cartAddRemove.classList.contains ("fa-plus-square")) {
-                        item.amount = item.amount + 1;
-                    } else {
-                        item.amount = item.amount - 1;
-                    }
-                }
-                populateCart ();
-            });
+function createRemoveAdd (item, buttonID) {
+    let button = document.createElement ("i");
+    button.classList.add ("fas");
+    button.classList.add (buttonID);
+    if (buttonID == "fa-plus-square") {
+        button.addEventListener ("click", function () {
+            item.amount = item.amount + 1;
+            cartContentAmount++;
+            document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
+        });
+    } else {
+        button.addEventListener ("click", function () {
+            item.amount = item.amount - 1;
+            cartContentAmount--;
+            document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
         });
     }
+    return (button);
 }
+
+// function addMoreToCart () {
+//     let cartAddRemove = document.getquerySelectorAll ("#cart-container td fas");
+//     for (let i = 0; i < cartAddRemove.length; i++) {
+//         cartAddRemove[i].addEventListener ("click", function () {
+//             let itemAdd = event.target.parent.parent.id;
+//             cartContent.forEach (function (item) {
+//                 if (item.id == itemAdd) {
+//                     if (cartAddRemove.classList.contains ("fa-plus-square")) {
+//                         item.amount = item.amount + 1;
+//                     } else {
+//                         item.amount = item.amount - 1;
+//                     }
+//                 }
+//                 populateCart ();
+//             });
+//         });
+//     }
+// }
 
 function makeCategory(category) {
     let option = document.createElement("li");
