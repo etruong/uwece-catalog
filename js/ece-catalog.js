@@ -73,8 +73,8 @@ function generateInfoList (itemInfo, subcategory) {
         row.append (info);
     }
     let buy = document.createElement ("i");
-    buy.className.add ("fas");
-    buy.className.add ("fa-plus-square");
+    buy.classList.add ("fas");
+    buy.classList.add ("fa-plus-square");
     row.append (buy);
     document.querySelector ("#item-content").append (row);
 }
