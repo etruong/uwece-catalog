@@ -61,7 +61,7 @@ function populateRowCart (item) {
     row.append (part);
     row.append (cost);
     row.append (amount);
-    let itemCost = parseFloat (cost.substr(1)) * parseInt (amount);
+    let itemCost = parseFloat (cost.substring(1)) * parseInt (amount);
     total = itemCost + total;
     document.querySelector ("#cart-container tbody").append (row);
 }
