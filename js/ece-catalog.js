@@ -24,6 +24,9 @@ ECECategories.forEach (makeCategory);
 document.querySelector ("#show").addEventListener ("click", function () {
     document.querySelector ("#category-list").innerHTML = "";
     ECECategories.forEach (makeCategory);
+    document.querySelector ("#locator").classList.add ("d-none");
+    document.querySelector ("#main-items").classList.add ("d-none");
+    document.querySelector ("tbody").innerHTML = "";
 });
 
 function makeCategory (category) {
