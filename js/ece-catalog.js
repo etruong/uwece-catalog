@@ -22,7 +22,7 @@ let currentCat = "";
 
 // Set up
 ECECategories.forEach (makeCategory);
-document.querySelector ("#show").addEventListener ("click", function () {
+document.querySelector ("#back-btn").addEventListener ("click", function () {
     document.querySelector ("#category-list").innerHTML = "";
     ECECategories.forEach (makeCategory);
     document.querySelector ("#locator").classList.add ("d-none");
