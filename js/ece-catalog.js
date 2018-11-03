@@ -42,7 +42,7 @@ document.querySelector("#cart-btn").addEventListener("click", function () {
 });
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
-    document.querySelector("#catalog").classList.remove("col-md-8");
+    document.querySelector("#catalog").classList.remove("col-md-5");
     document.querySelector("#catalog").classList.add("col-12");
     document.querySelector("#cart-container").classList.add("d-none");
 });
@@ -65,6 +65,12 @@ function populateRowCart (item) {
     row.id = item.id;
     let categoryName = document.createElement ("td");
     categoryName.textContent = item.category;
+    let subcategoryName = document.createElement ("td");
+    if (item.subcategory != "") {
+        subcategoryName.textContent = item.subcategory;
+    } else {
+        subcategoryName.textContent = "";
+    }
     let part = document.createElement ("td");
     part.textContent = item.id;
     let description = document.createElement ("td");
@@ -103,6 +109,9 @@ function createRemoveAdd (item, buttonID) {
             item.amount = item.amount - 1;
             cartContentAmount--;
             document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
+            if (item.amount == 0) {
+                event.target.parent.parent.remove ();
+            }
             populateCart();
         });
     }
