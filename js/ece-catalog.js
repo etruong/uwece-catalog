@@ -42,6 +42,7 @@ document.querySelector("#cart-btn").addEventListener("click", function () {
 });
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
+    cartBtn = false;
     document.querySelector("#catalog").classList.remove("col-md-5");
     document.querySelector("#catalog").classList.add("col-12");
     document.querySelector("#cart-container").classList.add("d-none");
@@ -66,7 +67,7 @@ function populateRowCart (item) {
     let part = document.createElement ("td");
     part.textContent = item.id;
     let description = document.createElement ("td");
-    let subcategory = item.subcategory;
+    let subcategory = item.subcat;
     if (subcategory) {
         subcategory = subcategory + ", ";
     } else {
@@ -79,7 +80,7 @@ function populateRowCart (item) {
     amount.textContent = item.amount;
     let removeBtn = document.createElement ("td");
     removeBtn.append (createRemoveAdd (item, "fa-plus-square"));
-    removeBtn.append (document.createElement ("br"));
+    removeBtn.append (document.createElement ("span").textContent (" "));
     removeBtn.append (createRemoveAdd (item, "fa-minus-square"));
     row.append (part);
     row.append (description);
@@ -109,7 +110,7 @@ function createRemoveAdd (item, buttonID) {
                 cartContentAmount--;
                 document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
             } else {
-                event.target.parentElement.parentElement.remove ();
+                event.target.parentNode.parentNode.remove ();
             }
             populateCart();
         });
