@@ -75,6 +75,7 @@ function generateInfoList (itemInfo, subcategory) {
         info.textContent = itemInfo[i];
         row.append (info);
     }
+    let buyContainer = document.createElement ("td");
     let buy = document.createElement ("i");
     buy.classList.add ("fas");
     buy.classList.add ("fa-plus-square");
@@ -82,9 +83,10 @@ function generateInfoList (itemInfo, subcategory) {
         let boughtItem = {id:itemInfo[3], description:itemInfo[4], cost:itemInfo[5]};
         cartContent.push (boughtItem);
         cartContentAmount++;
-        document.querySelector ("#cartAmount").textContent = " (" + cartContentAmount + ")";
+        document.querySelector ("#cart-amount").textContent = " (" + cartContentAmount + ")";
     });
-    row.append (buy);
+    buyContainer.append (buy);
+    row.append (buyContainer);
     document.querySelector ("#item-content").append (row);
 }
 
