@@ -56,7 +56,7 @@ function generateInfoList (itemInfo) {
     let part = document.createElement ("th");
     part.textContent = itemInfo[3];
     row.append (part);
-    for (let i = 4; i <= 6, i++) {
+    for (let i = 4; i <= 6; i++) {
         let info = document.createElement ("td");
         info.textContent = itemInfo[i];
         row.append (info);
