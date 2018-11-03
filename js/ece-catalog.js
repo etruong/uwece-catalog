@@ -40,9 +40,11 @@ document.querySelector("#cart-container button").addEventListener("click", funct
 
 // functions
 function populateCart() {
+    document.querySelector ("#cart-container tbody").innerHTML = "";
     if (cartContent.length == 0) {
         document.querySelector("#cart-container .alert").classList.remove("d-none");
     } else {
+        document.querySelector("#cart-container .alert").classList.add("d-none");
         cartContent.forEach (populateRowCart);
         document.querySelector ("#cart-total").total;
     }
@@ -137,6 +139,7 @@ function generateInfoList(itemInfo, subcategory) {
         }
         cartContentAmount++;
         document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
+
     });
     buyContainer.append(buy);
     row.append(buyContainer);
@@ -146,7 +149,8 @@ function generateInfoList(itemInfo, subcategory) {
 function checkCart(boughtItem) {
     for (let i = 0; i < cartContent.length; i++) {
         if (cartContent[i].id == boughtItem.id) {
-            cartContent[i].amount = cartContent[i].amount++;
+            let amount = parseInt (artContent[i].amount) + 1;
+            cartContent[i].amount = amount;
             return (true);
         }
     }
