@@ -64,5 +64,5 @@ function generateInfoList (itemInfo) {
     document.querySelector ("#item-content").append (row);
 }
 
-// fetchInfo ("Capacitor");
+fetchInfo ("Capacitor");
 
