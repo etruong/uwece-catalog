@@ -23,7 +23,7 @@ document.querySelector("#back-btn").addEventListener("click", function () {
     ECECategories.forEach(makeCategory);
     document.querySelector("#back-btn").classList.add("d-none");
     document.querySelector("#main-items").classList.add("d-none");
-    document.querySelector("tbody").innerHTML = "";
+    document.querySelector("#catalog tbody").innerHTML = "";
 });
 document.querySelector("#cart-btn").addEventListener("click", function () {
     document.querySelector("#catalog").classList.add("col-md-8");
@@ -61,7 +61,7 @@ function populateRowCart (item) {
     row.append (part);
     row.append (cost);
     row.append (amount);
-    let itemCost = parseFloat (cost) * parseInt (amount);
+    let itemCost = parseFloat (cost.substr(1)) * parseInt (amount);
     total = itemCost + total;
     document.querySelector ("#cart-container tbody").append (row);
 }
@@ -139,7 +139,7 @@ function generateInfoList(itemInfo, subcategory) {
         }
         cartContentAmount++;
         document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
-
+        populateCart ();
     });
     buyContainer.append(buy);
     row.append(buyContainer);
