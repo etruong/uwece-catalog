@@ -50,7 +50,8 @@ function fetchInfo (category) {
         download: true, 
         header: false,
         complete: (function (data) {
-            let currentCategory = document.querySelectorAll ("#current-category");
+            document.querySelector ("#locator").classList.remove ("d-none");
+            let currentCategory = document.querySelectorAll (".current-category");
             for (let i = 0; i < currentCategory.length; i++) {
                 currentCategory.textContent = category;
             }

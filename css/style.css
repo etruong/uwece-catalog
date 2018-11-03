@@ -30,6 +30,10 @@ header img {
     float: left;
 }
 
+#danger {
+    color: red;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
     color: #535353;
@@ -55,8 +59,11 @@ body {
 #locator {
     display: hidden;
     margin-top: 10px;
-    margin-left: 50px;
     text-align: left;
+}
+
+#locator, table {
+    margin-left: 50px;
 }
 
 .list-group-item:hover {
