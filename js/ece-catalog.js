@@ -20,7 +20,7 @@ function makeCategory (category) {
     let option = document.createElement ("li");
     option.textContent = category;
     option.classList.add ("list-group-item");
-
+    
     option.addEventListener ("click", function () {
         fetchInfo (category);
     });
@@ -42,17 +42,28 @@ function fetchInfo (category) {
         download: true, 
         header: false,
         complete: (function (data) {
+            document.querySelector ("#current-category").textContent = category;
             data.data.forEach (function (item) {
+                let subcategory = false;
                 if (item [1] == category) {
-                    generateInfoList (item);
+                    if (item [2] !== "") {
+                        subcategory = true;
+                        document.querySelector ("#subcateory").classList.remove ("d-none");
+                    }
+                    generateInfoList (item, subcategory);
                 }
             });
         })
     });
 }
 
-function generateInfoList (itemInfo) {
+function generateInfoList (itemInfo, subcategory) {
     let row = document.createElement ("tr");
+    if (subcategory) {
+        let cate = document.createElement ("td");
+        cate.textContent = itemInfo [2];
+        row.append (cate);
+    }
     let part = document.createElement ("th");
     part.textContent = itemInfo[3];
     row.append (part);
@@ -61,6 +72,10 @@ function generateInfoList (itemInfo) {
         info.textContent = itemInfo[i];
         row.append (info);
     }
+    let buy = document.createElement ("i");
+    buy.className.add ("fas");
+    buy.className.add ("fa-plus-square");
+    row.append (buy);
     document.querySelector ("#item-content").append (row);
 }
 
