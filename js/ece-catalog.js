@@ -6,7 +6,7 @@ let capacitors = ["Ceramic Disc", "Electrolytic", "Monolithic Ceramic", "Polyest
 let logicIC = ["CMOS", "ECL", "PLD", "TTL"];
 let resistor = ["1%, 1/4W", "5%, 1/4W", "5%, 1/2W", "5%, 1W", "5%, 2W", "5%, 5W"];
 
-let ECECategories = ["Capacitors", "Chokes and Inductors",
+let ECECategories = ["Capacitor", "Chokes and Inductors",
     "Crystals and Oscillators", "Diodes", "Diodes Zener", 
     "Lab Kits and Multimeters", "LED's", "Linear IC's",
     "Logic IC's", "Office Supplies", "Opto-electronics",
