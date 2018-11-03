@@ -80,7 +80,7 @@ function populateRowCart (item) {
     amount.textContent = item.amount;
     let removeBtn = document.createElement ("td");
     removeBtn.append (createRemoveAdd (item, "fa-plus-square"));
-    removeBtn.append (document.createElement ("span").textContent (" "));
+    removeBtn.append (document.createElement ("br"));
     removeBtn.append (createRemoveAdd (item, "fa-minus-square"));
     row.append (part);
     row.append (description);
