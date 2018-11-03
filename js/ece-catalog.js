@@ -40,6 +40,7 @@ document.querySelector("#cart-container button").addEventListener("click", funct
 
 // functions
 function populateCart() {
+    total = 0;
     document.querySelector ("#cart-container tbody").innerHTML = "";
     if (cartContent.length == 0) {
         document.querySelector("#cart-container .alert").classList.remove("d-none");
@@ -61,8 +62,8 @@ function populateRowCart (item) {
     row.append (part);
     row.append (cost);
     row.append (amount);
-    let itemCost = parseFloat (item.cost.substring(1)) * parseFloat (item.amount);
-    total = itemCost + total;
+    let itemCost = parseFloat (item.cost.substring(1)) * parseInt (item.amount);
+    total = total + itemCost;
     document.querySelector ("#cart-container tbody").append (row);
 }
 
