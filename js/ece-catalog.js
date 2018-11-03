@@ -51,3 +51,5 @@ function fetchInfo (category) {
     });
 }
 
+fetchInfo ("Capacitor");
+
