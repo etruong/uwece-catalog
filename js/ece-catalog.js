@@ -34,7 +34,7 @@ document.querySelector("#cart-btn").addEventListener("click", function () {
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
     document.querySelector("#catalog").classList.remove("col-md-8");
-    document.querySelector("#catalog").classList.add("col");
+    document.querySelector("#catalog").classList.add("col-12");
     document.querySelector("#cart-container").classList.add("d-none");
 });
 
@@ -46,7 +46,7 @@ function populateCart() {
     } else {
         document.querySelector("#cart-container .alert").classList.add("d-none");
         cartContent.forEach (populateRowCart);
-        document.querySelector ("#cart-total").total;
+        document.querySelector ("#cart-total").textContent = total;
     }
 }
 
@@ -149,7 +149,7 @@ function generateInfoList(itemInfo, subcategory) {
 function checkCart(boughtItem) {
     for (let i = 0; i < cartContent.length; i++) {
         if (cartContent[i].id == boughtItem.id) {
-            let amount = parseInt (artContent[i].amount) + 1;
+            let amount = parseInt (cartContent[i].amount) + 1;
             cartContent[i].amount = amount;
             return (true);
         }
