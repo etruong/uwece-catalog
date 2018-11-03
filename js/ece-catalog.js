@@ -29,12 +29,12 @@ document.querySelector("#back-btn").addEventListener("click", function () {
 document.querySelector("#cart-btn").addEventListener("click", function () {
     if (cartBtn) {
         cartBtn = false;
-        document.querySelector("#catalog").classList.remove("col-md-8");
+        document.querySelector("#catalog").classList.remove("col-md-5");
         document.querySelector("#catalog").classList.add("col-12");
         document.querySelector("#cart-container").classList.add("d-none");
     } else {
         cartBtn = true;
-        document.querySelector("#catalog").classList.add("col-md-8");
+        document.querySelector("#catalog").classList.add("col-md-5");
         document.querySelector("#cart-container tbody").innerHTML = "";
         populateCart();
         document.querySelector("#cart-container").classList.remove("d-none");
@@ -63,8 +63,12 @@ function populateCart() {
 function populateRowCart (item) {
     let row = document.createElement ("tr");
     row.id = item.id;
+    let categoryName = document.createElement ("td");
+    categoryName.textContent = item.category;
     let part = document.createElement ("td");
     part.textContent = item.id;
+    let description = document.createElement ("td");
+    description.textContent = item.description;
     let cost = document.createElement ("td");
     cost.textContent = item.cost;
     let amount = document.createElement ("td");
@@ -72,7 +76,9 @@ function populateRowCart (item) {
     let removeBtn = document.createElement ("td");
     removeBtn.append (createRemoveAdd (item, "fa-plus-square"));
     removeBtn.append (createRemoveAdd (item, "fa-minus-square"));
+    row.append (categoryName);
     row.append (part);
+    row.append (description);
     row.append (cost);
     row.append (amount);
     row.append (removeBtn);
@@ -90,12 +96,14 @@ function createRemoveAdd (item, buttonID) {
             item.amount = item.amount + 1;
             cartContentAmount++;
             document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
+            populateCart();
         });
     } else {
         button.addEventListener ("click", function () {
             item.amount = item.amount - 1;
             cartContentAmount--;
             document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
+            populateCart();
         });
     }
     return (button);
