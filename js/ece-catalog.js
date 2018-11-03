@@ -48,7 +48,7 @@ function fetchInfo (category) {
                 if (item [1] == category) {
                     if (item [2] !== "") {
                         subcategory = true;
-                        document.querySelector ("#subcateory").classList.remove ("d-none");
+                        document.querySelector ("#subcategory").classList.remove ("d-none");
                     }
                     generateInfoList (item, subcategory);
                 }
