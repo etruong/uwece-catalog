@@ -54,7 +54,7 @@ function fetchInfo (category) {
             document.querySelector ("#main-items").classList.remove ("d-none");
             let currentCategory = document.querySelectorAll (".current-category");
             for (let i = 0; i < currentCategory.length; i++) {
-                currentCategory.textContent = category;
+                currentCategory[i].textContent = category;
             }
             data.data.forEach (function (item) {
                 let subcategory = false;
