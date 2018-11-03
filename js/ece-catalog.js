@@ -14,6 +14,7 @@ let ECECategories = ["Capacitor", "Chokes and Inductors",
 let cartContent = [];
 let cartContentAmount = 0;
 let currentCat = "";
+let total = 0;
 
 // Set up
 ECECategories.forEach(makeCategory);
@@ -33,12 +34,34 @@ document.querySelector("#cart-btn").addEventListener("click", function () {
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
     document.querySelector("#catalog").classList.remove("col-md-8");
+    document.querySelector("#catalog").classList.remove("col");
     document.querySelector("#cart-container").classList.add("d-none");
 });
 
 // functions
 function populateCart() {
+    if (cartContent.length == 0) {
+        document.querySelector("#cart-container .alert").classList.remove("d-none");
+    } else {
+        cartContent.forEach (populateRowCart);
+        document.querySelector ("#cart-total").total;
+    }
+}
 
+function populateRowCart (item) {
+    let row = document.createElement ("tr");
+    let part = document.createElement ("td");
+    part.textContent = item.id;
+    let cost = document.createElement ("td");
+    cost.textContent = item.cost;
+    let amount = document.createElement ("td");
+    amount.textContent = item.amount;
+    row.append (part);
+    row.append (cost);
+    row.append (amount);
+    let itemCost = parseDouble (cost) * parseInt (amount);
+    total = itemCost + total;
+    document.querySelector ("#cart-container tbody").append (row);
 }
 
 function makeCategory(category) {
@@ -110,7 +133,7 @@ function generateInfoList(itemInfo, subcategory) {
     buy.addEventListener("click", function () {
         let boughtItem = {category: currentCat, subcat: itemInfo[2], id: itemInfo[3], description: itemInfo[4], cost: itemInfo[5], amount: 1 };
         if (!checkCart(boughtItem)) {
-            cartContent[currentCat].push(boughtItem);
+            cartContent.push(boughtItem);
         }
         cartContentAmount++;
         document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
