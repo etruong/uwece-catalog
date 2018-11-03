@@ -83,6 +83,7 @@ function populateRowCart (item) {
     removeBtn.append (createRemoveAdd (item, "fa-plus-square"));
     removeBtn.append (createRemoveAdd (item, "fa-minus-square"));
     row.append (categoryName);
+    row.append (subcategoryName);
     row.append (part);
     row.append (description);
     row.append (cost);
@@ -106,11 +107,12 @@ function createRemoveAdd (item, buttonID) {
         });
     } else {
         button.addEventListener ("click", function () {
-            item.amount = item.amount - 1;
-            cartContentAmount--;
-            document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
-            if (item.amount == 0) {
-                event.target.parent.parent.remove ();
+            if (item.amount > 0) {
+                item.amount = item.amount - 1;
+                cartContentAmount--;
+                document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
+            } else {
+                event.target.parent.remove ();
             }
             populateCart();
         });
