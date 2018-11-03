@@ -11,9 +11,9 @@ let ECECategories = ["Capacitor", "Chokes and Inductors",
     "Lab Kits and Multimeters", "LED's", "Linear IC's",
     "Logic IC's", "Office Supplies", "Opto-electronics",
     "Prototyping Supplies, Batteries, Tools, ect", "Resistors",
-    "Resistors DIP & SIP", "Resistors Trim Potentiometers",
+    "Resistors, DIP, & SIP", "Resistors, Trim Potentiometers",
     "SCR's, Triac's, Diac's, & Bridge Rectifiers", "Switches",
-    "Test Leads", "Transistors (Bipolar, FETS, JFETS, MOSFETS, ect",
+    "Test Leads", "Transistors (Bipolar, FETS, JFETS, MOSFETS, ect)",
     "Voltage Regulators"];
 
 let cartContent = [];
@@ -51,13 +51,14 @@ function fetchInfo (category) {
         header: false,
         complete: (function (data) {
             document.querySelector ("#locator").classList.remove ("d-none");
+            document.querySelector ("#main-items").classList.remove ("d-none");
             let currentCategory = document.querySelectorAll (".current-category");
             for (let i = 0; i < currentCategory.length; i++) {
                 currentCategory.textContent = category;
             }
             data.data.forEach (function (item) {
                 let subcategory = false;
-                if (item [1] == category) {
+                if (item [1].toLowerCase() == category.toLowerCase()) {
                     if (item [2] !== "") {
                         subcategory = true;
                         document.querySelector ("#subcategory").classList.remove ("d-none");

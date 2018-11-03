@@ -58,12 +58,13 @@ body {
 
 #locator {
     display: hidden;
-    margin-top: 10px;
+    margin-left: 50px;
+    
     text-align: left;
 }
 
-#locator, table {
-    margin-left: 50px;
+#locator, #category-list {
+    margin-top: 10px;
 }
 
 .list-group-item:hover {
