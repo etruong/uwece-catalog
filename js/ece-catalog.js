@@ -11,7 +11,7 @@ let ECECategories = ["Capacitor", "Chokes and Inductors",
     "Test Leads", "Transistors (Bipolar, FETS, JFETS, MOSFETS, ect)",
     "Voltage Regulators"];
 
-let cartContent = {};
+let cartContent = [];
 let cartContentAmount = 0;
 let currentCat = "";
 
@@ -33,6 +33,7 @@ document.querySelector("#cart-btn").addEventListener("click", function () {
 
 document.querySelector("#cart-container button").addEventListener("click", function () {
     document.querySelector("#catalog").classList.remove("col-md-8");
+    document.querySelector("#cart-container").classList.add("d-none");
 });
 
 // functions
@@ -107,7 +108,7 @@ function generateInfoList(itemInfo, subcategory) {
     buy.classList.add("fas");
     buy.classList.add("fa-plus-square");
     buy.addEventListener("click", function () {
-        let boughtItem = { category: currentCat, subcat: itemInfo[2], id: itemInfo[3], description: itemInfo[4], cost: itemInfo[5], amount: 1 };
+        let boughtItem = {category: currentCat, subcat: itemInfo[2], id: itemInfo[3], description: itemInfo[4], cost: itemInfo[5], amount: 1 };
         if (!checkCart(boughtItem)) {
             cartContent[currentCat].push(boughtItem);
         }
@@ -120,7 +121,7 @@ function generateInfoList(itemInfo, subcategory) {
 }
 
 function checkCart(boughtItem) {
-    for (let i = 0; i < cartContent[boughtItem.category].length; i++) {
+    for (let i = 0; i < cartContent.length; i++) {
         if (cartContent[i].id == boughtItem.id) {
             cartContent[i].amount = cartContent[i].amount++;
             return (true);
