@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>ECE Stores</title>
-        <meta name="author" content="Elisa Truong" />
-        <meta name="description" content="ECE Stores catalog" />
-        <meta charset="utf-8" />
-        <meta name="keywords" content="RSO, UW, University, Involvement" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="img/uwee_logo.png">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Encode+Sans:900" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <!-- Bootstrap for styling -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+
+<head>
+    <title>ECE Stores</title>
+    <meta name="author" content="Elisa Truong" />
+    <meta name="description" content="ECE Stores catalog" />
+    <meta charset="utf-8" />
+    <meta name="keywords" content="RSO, UW, University, Involvement" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="img/uwee_logo.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bootstrap for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    </head>
-    <body>
-        <header>
-            <button id="cart" class="btn float-right"><i aria-label="shopping cart" class="fas fa-shopping-cart"></i> Your Cart <span id="cart-amount"></span></button>
-            <h1 class="text-center"><span class="text-muted">University of Washington</span><br />ECE Stores <br class="d-sm-none d-inline" /> Online Catalog</h1>
-            <p id="danger" class="text-center">Please do not refresh the page. YOUR CART ITEMS WILL NOT BE SAVED! The catalog is still in progress</p>
-        </header>
-        <main class="container-fluid text-center md">
-            <div id="catalog">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <button id="cart-btn" class="btn float-right"><i aria-label="shopping cart" class="fas fa-shopping-cart"></i> Your
+            Cart <span id="cart-amount"></span></button>
+        <h1 class="text-center"><span class="text-muted">University of Washington</span><br />ECE Stores <br class="d-sm-none d-inline" />
+            Online Catalog</h1>
+        <p id="danger" class="text-center">Please do not refresh the page. YOUR CART ITEMS WILL NOT BE SAVED! The
+            catalog is still in progress</p>
+    </header>
+    <main class="container-fluid text-center md">
+        <div class="row">
+            <section id="cart-container" class="m-2 col d-none">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>My Cart</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Part #</th>
+                            <th>Cost</th>
+                            <th>Amount</th>
+                            <th>&emsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="alert alert-danger">You currently have nothing in your cart!</p>
+                <hr />
+                <p>Total: $<span></span></p>
+            </section>
+            <section id="catalog" class="col-md-8">
                 <!-- <div id="search-catalog" class="d-none input-group mt-5">
                     <input class ="form-control" type="text" placeholder="Type to search" />
                     <div class="input-group-prepend">
@@ -36,8 +63,8 @@
                 <button id="back-btn" class="btn btn-secondary float-left d-none">Back</button>
                 <div id="main-items" class="d-none">
                     <img class="d-none" src="img/loading-icon.gif" alt="loading icon" />
-                    <h3 class="current-category"></h3>
-                    <table class="table">
+                    <h4 class="current-category"></h4>
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th id="subcategory" class="d-none">Subcategory</th>
@@ -50,12 +77,14 @@
                         <tbody id="item-content"></tbody>
                     </table>
                 </div>
-            </div>
-        </main>
-        <footer>
+            </section>
+        </div>
+    </main>
+    <footer>
 
-        </footer>
-    </body>
-    <script src="js/papaparse.min.js"></script>
-    <script src="js/ece-catalog.js"></script>
+    </footer>
+</body>
+<script src="js/papaparse.min.js"></script>
+<script src="js/ece-catalog.js"></script>
+
 </html>
