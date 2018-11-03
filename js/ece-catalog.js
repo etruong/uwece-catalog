@@ -63,27 +63,24 @@ function populateCart() {
 function populateRowCart (item) {
     let row = document.createElement ("tr");
     row.id = item.id;
-    let categoryName = document.createElement ("td");
-    categoryName.textContent = item.category;
-    let subcategoryName = document.createElement ("td");
-    if (item.subcategory != "") {
-        subcategoryName.textContent = item.subcategory;
-    } else {
-        subcategoryName.textContent = "";
-    }
     let part = document.createElement ("td");
     part.textContent = item.id;
     let description = document.createElement ("td");
-    description.textContent = item.description;
+    let subcategory = item.subcategory;
+    if (subcategory) {
+        subcategory = subcategory + ", ";
+    } else {
+        subcategory = ", ";
+    }
+    description.textContent = item.category + subcategory + item.description;
     let cost = document.createElement ("td");
     cost.textContent = item.cost;
     let amount = document.createElement ("td");
     amount.textContent = item.amount;
     let removeBtn = document.createElement ("td");
     removeBtn.append (createRemoveAdd (item, "fa-plus-square"));
+    removeBtn.append (document.createElement ("br"));
     removeBtn.append (createRemoveAdd (item, "fa-minus-square"));
-    row.append (categoryName);
-    row.append (subcategoryName);
     row.append (part);
     row.append (description);
     row.append (cost);
@@ -112,7 +109,7 @@ function createRemoveAdd (item, buttonID) {
                 cartContentAmount--;
                 document.querySelector("#cart-amount").textContent = " (" + cartContentAmount + ")";
             } else {
-                event.target.parent.remove ();
+                event.target.parentElement.parentElement.remove ();
             }
             populateCart();
         });
