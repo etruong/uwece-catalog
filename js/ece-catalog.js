@@ -18,6 +18,7 @@ let ECECategories = ["Capacitor", "Chokes and Inductors",
 
 let cartContent = [];
 let cartContentAmount = 0;
+let currentCat = "";
 
 // Set up
 ECECategories.forEach (makeCategory);
@@ -48,7 +49,9 @@ function makeCategory (category) {
 }
 
 function fetchInfo (category) {
+    currentCat = category;
     document.querySelector ("#category-list").innerHTML = "";
+    document.querySelector ("#main-items img").classList.remove ("d-none");
     let data = Papa.parse("data/ece-catalog.csv", {
         download: true, 
         header: false,
@@ -69,6 +72,7 @@ function fetchInfo (category) {
                     generateInfoList (item, subcategory);
                 }
             });
+            document.querySelector ("#main-items img").classList.add ("d-none");
         })
     });
 }
@@ -93,7 +97,7 @@ function generateInfoList (itemInfo, subcategory) {
     buy.classList.add ("fas");
     buy.classList.add ("fa-plus-square");
     buy.addEventListener ("click", function () {
-        let boughtItem = {id:itemInfo[3], description:itemInfo[4], cost:itemInfo[5]};
+        let boughtItem = {category:currentCat, id:itemInfo[3], description:itemInfo[4], cost:itemInfo[5]};
         cartContent.push (boughtItem);
         cartContentAmount++;
         document.querySelector ("#cart-amount").textContent = " (" + cartContentAmount + ")";
