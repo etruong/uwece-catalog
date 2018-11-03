@@ -69,6 +69,10 @@ body {
     cursor: pointer;
 }
 
+#current-category {
+    margin-bottom: 10px;
+}
+
 @media (min-width: 768px) {
     #cart {
         position: fixed;

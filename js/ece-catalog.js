@@ -19,6 +19,13 @@ let ECECategories = ["Capacitors", "Chokes and Inductors",
 let cartContent = [];
 let cartContentAmount = 0;
 
+// Set up
+ECECategories.forEach (makeCategory);
+document.querySelector ("#show").addEventListener ("click", function () {
+    document.querySelector ("#category-list").innerHTML = "";
+    ECECategories.forEach (makeCategory);
+});
+
 function makeCategory (category) {
     let option = document.createElement ("li");
     option.textContent = category;
@@ -37,15 +44,16 @@ function makeCategory (category) {
     document.querySelector ("#category-list").append (option);
 }
 
-ECECategories.forEach (makeCategory);
-
 function fetchInfo (category) {
     document.querySelector ("#category-list").innerHTML = "";
     let data = Papa.parse("data/ece-catalog.csv", {
         download: true, 
         header: false,
         complete: (function (data) {
-            document.querySelector ("#current-category").textContent = category;
+            let currentCategory = document.querySelectorAll ("#current-category");
+            for (let i = 0; i < currentCategory.length; i++) {
+                currentCategory.textContent = category;
+            }
             data.data.forEach (function (item) {
                 let subcategory = false;
                 if (item [1] == category) {
@@ -90,5 +98,5 @@ function generateInfoList (itemInfo, subcategory) {
     document.querySelector ("#item-content").append (row);
 }
 
-fetchInfo ("Capacitor");
+
 
