@@ -44,12 +44,25 @@ function fetchInfo (category) {
         complete: (function (data) {
             data.data.forEach (function (item) {
                 if (item [1] == category) {
-                    console.log (item);
+                    generateInfoList (item);
                 }
             });
         })
     });
 }
 
-fetchInfo ("Capacitor");
+function generateInfoList (itemInfo) {
+    let row = document.createElement ("tr");
+    let part = document.createElement ("th");
+    part.textContent = itemInfo[3];
+    row.append (part);
+    for (let i = 4; i <= 6, i++) {
+        let info = document.createElement ("td");
+        info.textContent = itemInfo[i];
+        row.append (info);
+    }
+    document.querySelector ("#item-content").append (row);
+}
+
+// fetchInfo ("Capacitor");
 
