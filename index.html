@@ -15,77 +15,53 @@
     <!-- Bootstrap for styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <button id="cart-btn" class="btn float-right"><i aria-label="shopping cart" class="fas fa-shopping-cart"></i> Your
-            Cart <span id="cart-amount"></span></button>
-        <h1 class="text-center"><span class="text-muted">University of Washington</span><br />ECE Stores <br class="d-sm-none d-inline" />
-            Online Catalog</h1>
-        <p id="danger" class="text-center">Please do not refresh the page. YOUR CART ITEMS WILL NOT BE SAVED! The
-            catalog is still in progress</p>
-    </header>
-    <main class="container-fluid text-center md">
-        <div class="row">
-            <section id="cart-container" class="m-2 col d-none">
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4>My Cart</h4>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Part #</th>
-                            <th>Description</th>
-                            <th>Cost</th>
-                            <th>Amount</th>
-                            <th>&emsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <p class="alert alert-danger d-none">You currently have nothing in your cart!</p>
-                <hr />
-                <p>Total: $<span id="cart-total"></span></p>
-            </section>
-            <section id="catalog" class="col-12">
-                <!-- <div id="search-catalog" class="d-none input-group mt-5">
-                    <input class ="form-control" type="text" placeholder="Type to search" />
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary">Search</button>
-                    </div>
-                </div> -->
-                <!-- <p id="locator" class="d-none"><span id="show">All</span>&emsp; &gt; &emsp; <span class="current-category"></span></p> -->
-                <ol id="category-list" class="list-group"></ol>
-                <button id="back-btn" class="btn btn-secondary float-left d-none">Back</button>
-                <div id="main-items" class="d-none">
-                    <img class="d-none" src="img/loading-icon.gif" alt="loading icon" />
-                    <h4 class="current-category"></h4>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th id="subcategory" class="d-none">Subcategory</th>
-                                <th>ID / Part #</th>
-                                <th>Description</th>
-                                <th>Cost</th>
-                                <th>&emsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody id="item-content"></tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-    </main>
-    <footer>
 
-    </footer>
+    <header class="jumbotron jumbotron-fluid bg-warning text-center">
+        <p class="lead">University of Washington</p>
+        <h1 class="text-center">ECE Store Catalog</h1>
+        
+    </header>
+
+    <main class="container">
+        <section id="search-home">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Searching for</label>
+                </div>
+                <input type="text" class="form-control" placeholder="Type here" aria-label="search input" aria-describedby="search item">
+                <!-- <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Button</button>
+                </div> -->
+            </div>
+            <p class="text-center">or</p>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="chooseCategory">Search by Category</label>
+                </div>
+                <select class="custom-select" id="chooseCategory">
+                    <option selected value="none">Choose...</option>
+                </select>
+            </div>
+            <button id="search-btn" class="btn btn-outline-primary btn-block">Search</button>
+        </section>
+        <section id="search-results" class="d-none">
+            <button id="back-btn" class="btn">Go Back</button>
+            <h2 class="text-center"></h2>
+            <table class="table table-striped"></table>
+        </section>
+    </main>
+
+    <!-- JS Scripts -->
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+    <script src="js/index.js"></script>
+
 </body>
-<script src="js/papaparse.min.js"></script>
-<script src="js/ece-catalog.js"></script>
 
 </html>
