@@ -10,17 +10,10 @@ let testData = [
 let globalData = {data:[], query:"", categorySelected:"", mode:"query"};
 
 // Start up page set-up
-document.querySelector ('#search-btn').addEventListener ('click', function () {
-    globalData.query = document.querySelector ('#search-home input').value;
-    globalData.categorySelected = document.querySelector ('#chooseCategory').value;
-    if (globalData.query == '' && globalData.categorySelected == 'none') {
-        document.querySelector ('#alert').classList.remove ('d-none');
-    } else if (globalData.mode == "category" && globalData.categorySelected == 'Resistors') {
-        document.querySelector ('#alert').classList.add ('d-none');
-        window.open('data/view-resistors.docx');
-    } else {
-        document.querySelector ('#alert').classList.add ('d-none');
-        search();
+document.querySelector ('#search-btn').addEventListener ('click', clickedSearch);
+window.addEventListener ('keypress', function (e) {
+    if (e.keyCode == 13) {
+        clickedSearch ();
     }
 });
 document.querySelector ('#chooseCategory').addEventListener ('change', function () {
@@ -54,6 +47,20 @@ d3.csv("data/ece-catalog.csv")
     });
 
 // generateCategory (testData);
+
+function clickedSearch () {
+    globalData.query = document.querySelector ('#search-home input').value;
+    globalData.categorySelected = document.querySelector ('#chooseCategory').value;
+    if (globalData.query == '' && globalData.categorySelected == 'none') {
+        document.querySelector ('#alert').classList.remove ('d-none');
+    } else if (globalData.mode == "category" && globalData.categorySelected == 'Resistors') {
+        document.querySelector ('#alert').classList.add ('d-none');
+        window.open('data/view-resistors.docx');
+    } else {
+        document.querySelector ('#alert').classList.add ('d-none');
+        search();
+    }
+}
 
 function generateCategory (data) {
     let categories = ["Resistors"];
