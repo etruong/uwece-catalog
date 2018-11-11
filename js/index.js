@@ -10,7 +10,19 @@ let testData = [
 let globalData = {data:[], query:"", categorySelected:"", mode:"query"};
 
 // Start up page set-up
-document.querySelector ('#search-btn').addEventListener ('click', search);
+document.querySelector ('#search-btn').addEventListener ('click', function () {
+    globalData.query = document.querySelector ('#search-home input').value;
+    globalData.categorySelected = document.querySelector ('#chooseCategory').value;
+    if (globalData.query == '' && globalData.categorySelected == 'none') {
+        document.querySelector ('#alert').classList.remove ('d-none');
+    } else if (globalData.mode == "category" && globalData.categorySelected == 'Resistors') {
+        document.querySelector ('#alert').classList.add ('d-none');
+        window.open('data/view-resistors.docx');
+    } else {
+        document.querySelector ('#alert').classList.add ('d-none');
+        search();
+    }
+});
 document.querySelector ('#chooseCategory').addEventListener ('change', function () {
     if (document.querySelector ('#chooseCategory').value != "none") {
         document.querySelector ('#search-home input').disabled = true;
@@ -44,7 +56,7 @@ d3.csv("data/ece-catalog.csv")
 // generateCategory (testData);
 
 function generateCategory (data) {
-    let categories = [];
+    let categories = ["Resistors"];
     data.forEach ((item) => {
         if (categories.indexOf (item.Category) == -1) {
             categories.push (item.Category);
@@ -78,8 +90,6 @@ function switchView () {
 }
 
 function search () {
-    globalData.query = document.querySelector ('#search-home input').value;
-    globalData.categorySelected = document.querySelector ('#chooseCategory').value;
     switchView ();
     let filteredData = globalData.data;
     if (globalData.mode == "query") {
