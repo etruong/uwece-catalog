@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/uwece-catalog/static/js/runtime~main.a39ae203.js"
   },
   {
-    "revision": "47741fba31ffcf796f48",
-    "url": "/uwece-catalog/static/js/main.47741fba.chunk.js"
+    "revision": "91f60d64a4c0d00b3952",
+    "url": "/uwece-catalog/static/js/main.91f60d64.chunk.js"
   },
   {
     "revision": "23f809979b9079a90c88",
     "url": "/uwece-catalog/static/js/1.23f80997.chunk.js"
   },
   {
-    "revision": "47741fba31ffcf796f48",
+    "revision": "91f60d64a4c0d00b3952",
     "url": "/uwece-catalog/static/css/main.b498b6f8.chunk.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/uwece-catalog/static/css/1.4eeb11e3.chunk.css"
   },
   {
-    "revision": "e5a600d8515b228a804463dd95beff23",
+    "revision": "060e7052e033569e63ed779feee328ce",
     "url": "/uwece-catalog/index.html"
   }
 ];
