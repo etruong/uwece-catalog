@@ -1,7 +1,7 @@
 {
   "main.css": "/uwece-catalog/static/css/main.b498b6f8.chunk.css",
-  "main.js": "/uwece-catalog/static/js/main.91f60d64.chunk.js",
-  "main.js.map": "/uwece-catalog/static/js/main.91f60d64.chunk.js.map",
+  "main.js": "/uwece-catalog/static/js/main.caf3d74a.chunk.js",
+  "main.js.map": "/uwece-catalog/static/js/main.caf3d74a.chunk.js.map",
   "static/css/1.4eeb11e3.chunk.css": "/uwece-catalog/static/css/1.4eeb11e3.chunk.css",
   "static/js/1.23f80997.chunk.js": "/uwece-catalog/static/js/1.23f80997.chunk.js",
   "static/js/1.23f80997.chunk.js.map": "/uwece-catalog/static/js/1.23f80997.chunk.js.map",
@@ -12,6 +12,6 @@
   "static/media/resistors.csv": "/uwece-catalog/static/media/resistors.bc95a211.csv",
   "static/css/1.4eeb11e3.chunk.css.map": "/uwece-catalog/static/css/1.4eeb11e3.chunk.css.map",
   "index.html": "/uwece-catalog/index.html",
-  "precache-manifest.c0cee3a00dd267cf4167faa72e4ba3d6.js": "/uwece-catalog/precache-manifest.c0cee3a00dd267cf4167faa72e4ba3d6.js",
+  "precache-manifest.96a051371550dcf2c4f17db59d77ef7c.js": "/uwece-catalog/precache-manifest.96a051371550dcf2c4f17db59d77ef7c.js",
   "service-worker.js": "/uwece-catalog/service-worker.js"
 }
