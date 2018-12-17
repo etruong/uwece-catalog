@@ -12,23 +12,23 @@ self.__precacheManifest = [
     "url": "/uwece-catalog/static/js/runtime~main.a39ae203.js"
   },
   {
-    "revision": "caf3d74a06a51824fe78",
-    "url": "/uwece-catalog/static/js/main.caf3d74a.chunk.js"
+    "revision": "fe96f95d640ce2ad333b",
+    "url": "/uwece-catalog/static/js/main.fe96f95d.chunk.js"
   },
   {
     "revision": "23f809979b9079a90c88",
     "url": "/uwece-catalog/static/js/1.23f80997.chunk.js"
   },
   {
-    "revision": "caf3d74a06a51824fe78",
-    "url": "/uwece-catalog/static/css/main.b498b6f8.chunk.css"
+    "revision": "fe96f95d640ce2ad333b",
+    "url": "/uwece-catalog/static/css/main.50ea2284.chunk.css"
   },
   {
     "revision": "23f809979b9079a90c88",
     "url": "/uwece-catalog/static/css/1.4eeb11e3.chunk.css"
   },
   {
-    "revision": "80aa2d90e67296dfc39c46ceb28d82de",
+    "revision": "3725931a168caae13aec3c127d3740b3",
     "url": "/uwece-catalog/index.html"
   }
 ];
